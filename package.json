@@ -1,0 +1,35 @@
+{
+  "name": "persian-cat",
+  "displayName": "Persian Cat",
+  "description": "A fluffy, procedurally animated Persian cat that lives on top of your editor.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "scripts": {
+    "test": "node test.js",
+    "vscode:uninstall": "node ./uninstall.js"
+  },
+  "contributes": {
+    "commands": [
+      { "command": "persianCat.install", "title": "Persian Cat: Let the Cat In" },
+      { "command": "persianCat.uninstall", "title": "Persian Cat: Remove (restore VS Code files)" }
+    ],
+    "configuration": {
+      "title": "Persian Cat",
+      "properties": {
+        "persianCat.enabled": { "type": "boolean", "default": true, "description": "Show the cat." },
+        "persianCat.size": { "type": "number", "default": 220, "minimum": 80, "maximum": 600, "description": "Cat length in pixels." },
+        "persianCat.frequency": {
+          "type": "string", "enum": ["rare", "normal", "often"], "default": "normal",
+          "enumDescriptions": ["Visits every 4–10 minutes", "Visits every 1–3 minutes", "Visits every 15–45 seconds"],
+          "description": "How often the cat visits and how long it stays."
+        },
+        "persianCat.mouseInteraction": { "type": "boolean", "default": true, "description": "Let the cat watch, chase and pounce on the mouse pointer." }
+      }
+    }
+  }
+}
